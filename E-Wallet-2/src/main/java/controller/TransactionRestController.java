@@ -56,14 +56,14 @@ public class TransactionRestController {
    }
 
    @GetMapping("/getbyid/{id}")
-   public ResponseEntity<WalletTransactions>findEmployeeById( @PathVariable("id") @Min(1)  long id){
+   public ResponseEntity<WalletTransactions>findTransactionById( @PathVariable("id") @Min(1)  long id){
 	   WalletTransactions transaction= service.findById(id);
       ResponseEntity<WalletTransactions>response=new ResponseEntity<>(transaction,HttpStatus.OK);
       return response;
    }
    
    @GetMapping("/getbyaccount/{account}")
-   public ResponseEntity<WalletTransactions>findEmployeeById( @PathVariable("account") @Min(1)  int account){
+   public ResponseEntity<WalletTransactions>findTransactionByAccount( @PathVariable("account") @Min(1)  int account){
 	   WalletTransactions transaction= service.findByAccount(account);
       ResponseEntity<WalletTransactions>response=new ResponseEntity<>(transaction,HttpStatus.OK);
       return response;
