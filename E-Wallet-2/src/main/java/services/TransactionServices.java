@@ -11,7 +11,7 @@ public interface TransactionServices {
     WalletTransactions save(WalletTransactions transaction);
     WalletTransactions findById(long id);
     List<WalletTransactions> fetchAll();
-    WalletTransactions findByAccount(int id);
+    List<WalletTransactions> findByAccount(int id);
 
 
 }

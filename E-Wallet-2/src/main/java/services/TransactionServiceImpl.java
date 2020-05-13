@@ -1,5 +1,6 @@
 package services;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -60,16 +61,20 @@ public class TransactionServiceImpl implements TransactionServices {
 
 	}
 	@Override
-	public WalletTransactions findByAccount(int account) {
+	public List <WalletTransactions> findByAccount(int account) {
 		
 		
-		  Optional< WalletTransactions>optional=transactionDao.findByAccount(account);
-		     if(optional.isPresent()){
-		    	 WalletTransactions transaction=optional.get();
-		         return transaction ;
-	}
-		     
+
+	       List <WalletTransactions> transactions =transactionDao.findByAccount(account);
+	       
+	       if(!transactions.isEmpty())
+	       {
+	    	   return transactions ;
+	       }
+	       else
+	       {
 		     throw new AccountNotFoundException("Account not found for account="+account);
+	       }
 
 
 	}

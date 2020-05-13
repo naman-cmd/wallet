@@ -63,9 +63,9 @@ public class TransactionRestController {
    }
    
    @GetMapping("/getbyaccount/{account}")
-   public ResponseEntity<WalletTransactions>findTransactionByAccount( @PathVariable("account") @Min(1)  int account){
-	   WalletTransactions transaction= service.findByAccount(account);
-      ResponseEntity<WalletTransactions>response=new ResponseEntity<>(transaction,HttpStatus.OK);
+   public ResponseEntity<List<WalletTransactions>>findTransactionByAccount( @PathVariable("account") @Min(1)  int account){
+	   List<WalletTransactions> transactions= service.findByAccount(account);
+      ResponseEntity<List<WalletTransactions>>response=new ResponseEntity<>(transactions,HttpStatus.OK);
       return response;
    }
    
